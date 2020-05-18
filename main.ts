@@ -51,6 +51,12 @@ scene.onOverlapTile(SpriteKind.mmmmm, sprites.dungeon.collectibleInsignia, funct
     }
     _8.setPosition(Math.randomRange(10, 230), Math.randomRange(10, 230))
 })
+function show_instruction (text: string) {
+    game.showLongText("move with the arrow keys and dodge the ghosts!", DialogLayout.Bottom)
+    game.showLongText("stay alive for as long as possible and make a highscore by eating the food!", DialogLayout.Bottom)
+    game.showLongText("Food will keep reappear 4 times so keep eating them!", DialogLayout.Bottom)
+    music.baDing.play()
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.mmmmm, function (sprite, otherSprite) {
     music.baDing.play()
     info.changeScoreBy(10)
@@ -84,12 +90,6 @@ sprites.onDestroyed(SpriteKind.Food, function (sprite) {
 `, SpriteKind.Food)
     mySprite5.setPosition(Math.randomRange(10, 230), Math.randomRange(10, 230))
 })
-function show_instruction (text: string) {
-    game.showLongText("move with the arrow keys and dodge the ghosts!", DialogLayout.Bottom)
-    game.showLongText("stay alive for as long as possible and make a highscore by eating the food!", DialogLayout.Bottom)
-    game.showLongText("Food will keep reappear 4 times so keep eating them!", DialogLayout.Bottom)
-    music.baDing.play()
-}
 sprites.onDestroyed(SpriteKind.Projectile, function (sprite) {
     mySprite6 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
