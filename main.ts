@@ -84,6 +84,12 @@ sprites.onDestroyed(SpriteKind.Food, function (sprite) {
 `, SpriteKind.Food)
     mySprite5.setPosition(Math.randomRange(10, 230), Math.randomRange(10, 230))
 })
+function show_instruction (text: string) {
+    game.showLongText("move with the arrow keys and dodge the ghosts!", DialogLayout.Bottom)
+    game.showLongText("stay alive for as long as possible and make a highscore by eating the food!", DialogLayout.Bottom)
+    game.showLongText("Food will keep reappear 4 times so keep eating them!", DialogLayout.Bottom)
+    music.baDing.play()
+}
 sprites.onDestroyed(SpriteKind.Projectile, function (sprite) {
     mySprite6 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -165,12 +171,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Enemy, function (sprite, otherSprite) {
     mySprite2.setPosition(61, 101)
 })
-function show_instruction (text: string) {
-    game.showLongText("move with the arrow keys and dodge the ghosts!", DialogLayout.Bottom)
-    game.showLongText("stay alive for as long as possible and make a highscore by eating the food!", DialogLayout.Bottom)
-    game.showLongText("Food will keep reappear 4 times so keep eating them!", DialogLayout.Bottom)
-    music.baDing.play()
-}
 sprites.onDestroyed(SpriteKind.mmmmm, function (sprite) {
     _8 = sprites.create(img`
 . . . . . . . . . . . . . . . . 
@@ -204,13 +204,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.wizard, function (sprite, otherS
     mySprite4.destroy(effects.fire, 500)
     mySprite.say("yahooo", 200)
 })
+let _8: Sprite = null
+let _7: Sprite = null
 let mySprite6: Sprite = null
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
-let _8: Sprite = null
-let _7: Sprite = null
 mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . f f f f . . . . . . . . . . . . . . . 
